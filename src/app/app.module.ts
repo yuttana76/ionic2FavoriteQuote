@@ -1,6 +1,6 @@
 import { TabPage } from './../pages/tabs/tabs';
 import { Settings } from './../pages/settings/settings';
-import { Quotes } from './../pages/quotes/quotes';
+import { QuotesPage } from './../pages/quotes/quotes';
 import { Quote } from './../pages/quote/quote';
 import { Library } from './../pages/library/library';
 import { Favorites } from './../pages/favorites/favorites';
@@ -19,7 +19,7 @@ import { MyApp } from './app.component';
     Favorites,
     Library,
     Quote,
-    Quotes,
+    QuotesPage,
     Settings,
     TabPage
   ],
@@ -33,7 +33,7 @@ import { MyApp } from './app.component';
     Favorites,
     Library,
     Quote,
-    Quotes,
+    QuotesPage,
     Settings,
     TabPage
   ],
