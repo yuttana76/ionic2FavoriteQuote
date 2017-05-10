@@ -13,15 +13,28 @@ export class Favorites {
 
   quotes: Quote[];
 
-  constructor(private quoteService: QuoteService,private modalCtrl:ModalController) {
+  constructor(private quoteService: QuoteService, private modalCtrl: ModalController) {
   }
 
   ionViewWillEnter() {
     this.quotes = this.quoteService.getFavoriateQuotes();
   }
 
-  onViewQuote(quote:Quote){
-    const modal = this.modalCtrl.create(QuotePage);
+  onViewQuote(quote: Quote) {
+    const modal = this.modalCtrl.create(QuotePage, quote);
     modal.present();
+    modal.onDidDismiss((remove: boolean) => {
+      if (remove) {
+        this.onRemoveFromFavoriate(quote);
+      }
+    });
+  }
+
+  onRemoveFromFavoriate(quote: Quote) {
+    this.quoteService.removeQuoteFromFavorite(quote);
+    const position = this.quotes.findIndex((quoteEL: Quote) => {
+      return quoteEL.id == quote.id
+    });
+    this.quotes.splice(position, 1);
   }
 }

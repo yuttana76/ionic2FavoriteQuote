@@ -18,7 +18,7 @@ export class QuotesPage implements OnInit {
 
   quoteGroup: { category: string, quotes: Quote[], icon: string };
 
-  constructor(private navParams: NavParams, private alertCtrl: AlertController,private quoteService:QuoteService) { }
+  constructor(private navParams: NavParams, private alertCtrl: AlertController, private quoteService: QuoteService) { }
 
   // ionViewDidLoad() {
   //   // console.log('ionViewDidLoad >' + this.navParams.data);
@@ -32,15 +32,15 @@ export class QuotesPage implements OnInit {
       title: 'Add quote',
       subTitle: 'Are you sure?',
       message: 'Are you sure you want to add the quote?',
-      buttons:[
+      buttons: [
         {
-          text:'Yes, go ahead',
-          handler:()=>{
+          text: 'Yes, go ahead',
+          handler: () => {
             this.quoteService.addQuoteToFavoriates(selectedQuote);
           }
-        },{
-        text:'No, I changed my mind!',
-          handler:()=>{
+        }, {
+          text: 'No, I changed my mind!',
+          handler: () => {
             console.log('Cancelled');
           }
         }
@@ -48,6 +48,14 @@ export class QuotesPage implements OnInit {
     });
 
     alert.present();
+  }
+
+  isFavoriates(selectedQuote: Quote) {
+    return this.quoteService.isFavorites(selectedQuote);
+  }
+
+  onDeleteToFavorite(selectedQuote: Quote) {
+    this.quoteService.removeQuoteFromFavorite(selectedQuote);
   }
 
 }
