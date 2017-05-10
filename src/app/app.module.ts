@@ -1,7 +1,7 @@
 import { TabPage } from './../pages/tabs/tabs';
 import { Settings } from './../pages/settings/settings';
 import { QuotesPage } from './../pages/quotes/quotes';
-import { Quote } from './../pages/quote/quote';
+import { QuotePage } from './../pages/quote/quote';
 import { Library } from './../pages/library/library';
 import { Favorites } from './../pages/favorites/favorites';
 
@@ -12,13 +12,14 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 
 import { MyApp } from './app.component';
+import { QuoteService } from '../services/quotes';
 
 @NgModule({
   declarations: [
     MyApp,
     Favorites,
     Library,
-    Quote,
+    QuotePage,
     QuotesPage,
     Settings,
     TabPage
@@ -32,7 +33,7 @@ import { MyApp } from './app.component';
     MyApp,
     Favorites,
     Library,
-    Quote,
+    QuotePage,
     QuotesPage,
     Settings,
     TabPage
@@ -40,7 +41,8 @@ import { MyApp } from './app.component';
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    QuoteService,
   ]
 })
 export class AppModule {}
