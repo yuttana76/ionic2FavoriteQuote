@@ -1,3 +1,4 @@
+import { SettingsService } from './../services/settings';
 import { TabPage } from './../pages/tabs/tabs';
 import { Settings } from './../pages/settings/settings';
 import { QuotesPage } from './../pages/quotes/quotes';
@@ -43,6 +44,7 @@ import { QuoteService } from '../services/quotes';
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     QuoteService,
+    SettingsService
   ]
 })
 export class AppModule {}
